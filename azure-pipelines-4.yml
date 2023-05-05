@@ -12,8 +12,8 @@ pool:
 variables:
   buildplatform: 'Any CPU'
   buildconfiguration: 'Release'
-  solution: '**/maheshpillipaka.AzureTestProject.sln'
-  project: '**/maheshpillipaka.AzureTestProject.csproj'
+  solution: '**/RoundTheCode.AzureTestProject.sln'
+  project: '**/RoundTheCode.AzureTestProject.csproj'
 
 steps:
 - task: NuGetToolInstaller@1
