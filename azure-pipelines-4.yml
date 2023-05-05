@@ -17,16 +17,15 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
-  name: 'NuGetToolInstaller'
+  name: 'NuGetToolInstaller' 
   displayName: 'NuGet tool installer'
 
 - task: NuGetCommand@2
-name: 'NuGetRestore'
-displayName: 'NuGet restore packages'
-inputs:
+  inputs:
     command: 'restore'
     restoreSolution: '$(solution)'
     feedsToUse: 'select'
+
 
 - task: DotNetCoreCLI@2
 name: 'Tests'
@@ -36,20 +35,21 @@ displayName: 'Run tests'
     projects: '$(solution)'
     arguments: '--configuration $(BuildConfiguration)'
 
+
 - task: DotNetCoreCLI@2
 name: 'publish'
-displayName: 'publish'
+displayNmae: 'publish'
   inputs:
     command: 'publish'
     publishWebProjects: false
-    projects: '$(project)'
+    projects: '$(solution)'
     arguments: '--configuration $(BuildConfiguration)--output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: false
 
 - task: PublishBuildArtifacts@1
-name: 'PublishBuildArtifacts'
+name: 'publishBuildArtifacts'
 displayName: 'publish build artifacts'
   inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'AzureTestProject'
-      publishLocation: 'Container'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'AzureTestProject'
+    publishLocation: 'Container'
