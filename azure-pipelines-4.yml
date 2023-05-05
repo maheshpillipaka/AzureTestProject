@@ -23,7 +23,7 @@ steps:
 - task: NuGetCommand@2
 name: 'NuGetRestore'
 displayName: 'NuGet restore packages'
-  inputs:
+inputs:
     command: 'restore'
     restoreSolution: '$(solution)'
     feedsToUse: 'select'
