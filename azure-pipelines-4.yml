@@ -28,17 +28,17 @@ steps:
 
 
 - task: DotNetCoreCLI@2
-name: 'tests'
- displayname: 'Run tests'
- inputs:
+  name: 'tests'
+  displayName: 'Run tests'
+  inputs:
     command: 'test'
     projects: '$(solution)'
     arguments: '--configuration $(BuildConfiguration)'
 
 
 - task: DotNetCoreCLI@2
-name: 'publish'
-displayName: 'publish'
+  name: 'publish'
+  displayName: 'publish'
   inputs:
     command: 'publish'
     publishWebProjects: false
@@ -47,8 +47,8 @@ displayName: 'publish'
     zipAfterPublish: false
 
 - task: PublishBuildArtifacts@1
-name: 'publishBuildArtifacts'
-displayName: 'publish build artifacts'
+  name: 'publishBuildArtifacts'
+  displayName: 'publish build artifacts'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'AzureTestProject'
